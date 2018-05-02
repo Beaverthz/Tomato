@@ -135,8 +135,8 @@ else{
             <div class="container" style="background-image:url('img/pexels.jpeg')">
                 <div class="intro-text">
                     <div class="intro-lead-in"></div>
-                    <div class="intro-heading">FOOD HUT</div>
-                    <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                    <div class="intro-heading">TOMATO</div>
+                    <a href="user.html" class="page-scroll btn btn-xl">Log In</a>
                 </div>
             </div>
         </header>
