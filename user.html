@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Tomato | Sign-Up/Login Form</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -23,34 +27,34 @@
           <div class="top-row">
             <div class="field-wrap">
               <label>
-                First Name<span class="req">*</span>
+                Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input id="name" type="text" required autocomplete="off" />
             </div>
 
             <div class="field-wrap">
               <label>
-                Last Name<span class="req">*</span>
+                Address<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input id="address" type="text"required autocomplete="off"/>
             </div>
           </div>
 
           <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Username (E-Mail)<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input id="email" type="email"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input id="password" type="password"required autocomplete="off"/>
           </div>
 
-          <button type="submit" class="button button-block"/>Sign Up</button>
+          <button type="button" id="signupbtn" class="button button-block"/>Sign Up</button>
 
           </form>
 
@@ -65,17 +69,17 @@
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input id="signinEmail" type="email"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input id="signinPassword" type="password"required autocomplete="off"/>
           </div>
 
-          <button class="button button-block"/>Log In</button>
+          <button id="signinbtn" class="button button-block"/>Log In</button>
 
           </form>
 

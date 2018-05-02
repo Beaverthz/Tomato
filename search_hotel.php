@@ -4,9 +4,10 @@ if($_SERVER['REQUEST_METHOD']==='POST')
 {
     $lat = htmlspecialchars($_POST['latitude']);
     $long = htmlspecialchars($_POST['longitude']);
-    $r = 0.1;
+    $r = 1;
     $res = $con->prepare("select hotel_id as hid,hotel_name,image as hotel_image,hotel_desc as haddress,phone as hphone from hotel where lat >=? and lat <=? and longi >=? and longi<= ?");
     $a = array(($lat-$r),($lat+$r),($long-$r),($long+$r));
+    echo $a;
     if($res->execute($a))
     {
         $res->setFetchMode(PDO::FETCH_ASSOC);

@@ -19,13 +19,14 @@ if ($rs->num_rows > 0) {
     if ($type_id == 1) {
         header('location:admin/home.php');
         exit;
-    } else if($status==0) {
-echo '<script>';
-    echo "alert('You cant login right now,You can only login after Admin approves you...');";
-    echo "location='index.php';";
-    echo "</script>";
-}
-else{
+    }
+//      else if($status==0) {
+// echo '<script>';
+//     echo "alert('You cant login right now,You can only login after Admin approves you...');";
+//     echo "location='index.php';";
+//     echo "</script>";
+// }
+else {
         $query = "select hotel_name from hotel where log_id = '$id'";
         $rs = mysqli_query($conn, $query);
         $r = $rs->fetch_assoc();

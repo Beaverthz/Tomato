@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <html>
  <head>
-    <title>Tomato | Rating</title>
+    <title>FoodHut | Rating</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

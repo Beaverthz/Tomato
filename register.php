@@ -10,14 +10,14 @@ $email = $_POST["uname"];
 $district = $_POST["district"];
 $lat = $_POST['lat'];
 $long = $_POST['longi'];
-$img_name = $_FILES['hotel_img']['name'];
-$img_tmp = $_FILES['hotel_img']['tmp_name'];
-$up = move_uploaded_file($img_tmp,'./img/hotel/'.$img_name);
+$img_name = $_POST['hotel_img'];
+// $img_tmp = $_FILES['hotel_img']['tmp_name'];
+// $up = move_uploaded_file($img_tmp,'./img/hotel/'.$img_name);
 $sql = "INSERT INTO  `login` (`email`, `password`,`status`) VALUES ('$email','$pass',0)";
 
 if ($conn->query($sql) === TRUE) {
     $log_id = $conn->insert_id;
-    $img_db = 'https://alexanto.000webhostapp.com/foodapp/img/hotel/'.$img_name;
+    $img_db = $img_name;
     $sql = "insert into hotel (log_id,name,phone,hotel_name,hotel_desc,district,image,lat,longi) values($log_id,'$name','$phone','$hotel_name','$description','$district','$img_db','$lat','$long')";
     if ($conn->query($sql) === TRUE) {
         echo '<script>';

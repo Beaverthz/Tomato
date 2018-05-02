@@ -16,6 +16,10 @@ header("Location:./index.php");
 
         <title>Tomato | Management System</title>
 
+        <!-- favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,20 +60,22 @@ header("Location:./index.php");
                     <a class="navbar-brand page-scroll" href="#page-top"></a>
                 </div>
 
+                <ul class="nav navbar-nav navbar-header">
+                  <li>
+                    <br>
+                    <img src="img/tomato.jpg" alt="" height="42" width="auto">
+                  </li>
+                </ul>
+
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
+                        <br>
                         <li>
                             <a class="page-scroll" href="Home.php">Home</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="Bookings.php">Orders</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="check_food_rating.php">Rating</a>
                         </li>
                         <?php
 
@@ -112,68 +118,11 @@ header("Location:./index.php");
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input type="file" class="form-control" name="f_image" required=""/>
+                                    <input placeholder="image link" type="text" class="form-control" name="f_image" required=""/>
                                 </div>
                                 <input type="submit" class="btn btn-warning" value="Add Food"/>
                             </form>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h3><b>Make a Combo</b></h3>
-                        <form action="MakeCombo.php" method="POST" enctype='multipart/form-data'>
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    <label>Select Food</label>
-                                    <select class="form-control" id="food_item">
-                                        <?php
-                                        $r = $conn->query($sql);
-                                        if ($r->num_rows > 0) {
-                                            while ($row = $r->fetch_assoc()) {
-                                                $food = $row["food_name"];
-                                                echo "<option value='$food'>$food</option>";
-                                            }
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="form-group">
-                                    <label>Number</label>
-                                    <input type="number" id="num" class="form-control" required="" min="1"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="form-group">
-                                    <label>Proceed</label>
-                                    <input type="button" class="btn btn-danger" id="add" value="ADD"/>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Items</label>
-                                    <textarea name="combo" id="cmb" class="form-control" rows="5"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="combo_name" placeholder="Combo Name" required=""/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" name="price" placeholder="What is the price then?" class="form-control" pattern="[0-9]+" required=""/>
-                                </div>
-                            </div>
-                            <div class='col-lg-12'>
-                                <div class='form-group'>
-                                    <input type='file' name='c_image' required='required' class='form-control'>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="submit" class="btn btn-warning pull-right" value="Make It"/>
-                            </div>
-                        </form>
                     </div>
                 </div>
 
@@ -216,36 +165,6 @@ header("Location:./index.php");
 
                     }
                     ?>
-                    <h3>Combos</h3>
-                    <table class="table table-bordered">
-                        <thead>
-                        <th>No</th>
-                        <th>Combo Name</th>
-                        <th>Items</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                        </thead>
-                        <?php
-                        $sql1 = "select combo_id,combo_name,price,combo_image from combo where log_id = $log_id";
-                        $rs1 = mysqli_query($conn, $sql1);
-                        $c = 1;
-                        while ($row = mysqli_fetch_array($rs1)) {
-                            $combo_id = $row[0];
-                            $combo_name = $row[1];
-                            $price = $row[2];
-                            $image = $row[3];
-                            $sql = "select food_name from combo_items where combo_id=$combo_id";
-                            $rs2 = mysqli_query($conn, $sql);
-                            $items = "";
-                            while ($row = mysqli_fetch_array($rs2)) {
-                                $items = $items . $row[0] . ",";
-                            }
-                            echo "<tr><td>$c</td><td>$combo_name</td><td>$items</td><td>$price</td><td><img src='".$image."' width='100' height='100'></td><td><a href='remove_combo.php?combo_id=$combo_id'>Remove</a></td></tr>";
-                            $c++;
-                        }
-                        ?>
-                    </table>
                 </div>
             </div>
         </div>
